@@ -9,7 +9,8 @@ import net.minecraftforge.common.config.Property;
 public class VBConfig {
 	//properties
 	public static int[] proIDBanList;					//banned profession IDs
-	public static boolean destroyBlocksDropCoins;		//ture: destroy blocks can drop coins
+	public static boolean destroyBlocksDropCoins;		//true: destroy blocks can drop coins
+	public static int coinChance;						//default: 5. The chance for coins to drop is 1/coinChance (default is 1/5)
 	public static boolean killMobsDropCoins;			//true: kill mobs can drop coins
 	public static boolean displayExtraInfo;				//true: will display extra information in game like the profession id
 	public static boolean freeUpgrading;				//set to ture when you want nothing be cunsumed on upgrading villagers
@@ -36,6 +37,10 @@ public class VBConfig {
 		pt = conf.get(Configuration.CATEGORY_GENERAL, "DestroyBlocksDropCoins", true);
 		pt.setComment("Does destroying blocks drop coins?");
 		destroyBlocksDropCoins = pt.getBoolean();
+		
+		pt = conf.get(Configuration.CATEGORY_GENERAL, "CoinChance", 5);
+		pt.setComment("Chance of coins dropping from block breaks. Chance of coins = 1/this number. Default value is 5, so the chance of coins is 1/5. Has no effect if DestroyBlocksDropCoins is false.");
+		coinChance = pt.getInt();
 		
 		pt = conf.get(Configuration.CATEGORY_GENERAL, "KillMobsDropCoins", true);
 		pt.setComment("Does killing mobs drop coins?");
