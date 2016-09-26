@@ -50,11 +50,11 @@ public class EventCoinsFound {
 	public void onBlockHarvest(BlockEvent.HarvestDropsEvent event)
 	{
 		if(!event.getWorld().isRemote && event.getHarvester() != null){
-			if(Rand.get().nextInt(5) == 0 && VBConfig.destroyBlocksDropCoins){
+			if(Rand.get().nextInt(VBConfig.coinChance) == 0 && VBConfig.destroyBlocksDropCoins){
 				int l =  ExtendedPlayerProperties.get(event.getHarvester()).treasureHuntLevel;
 				int base = l + 1;
-				int add = l * 2;
-				dropCoins(Rand.get().nextInt(3),event.getWorld(), event.getPos().getX() + 0.5D, event.getPos().getY() + 0.5D, event.getPos().getZ() + 0.5D);
+				int add = l * 3;
+				dropCoins(Rand.get().nextInt(add),event.getWorld(), event.getPos().getX() + 0.5D, event.getPos().getY() + 0.5D, event.getPos().getZ() + 0.5D);
 			}
 		}
 	}
