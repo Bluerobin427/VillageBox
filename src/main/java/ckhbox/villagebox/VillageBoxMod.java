@@ -14,7 +14,7 @@ public class VillageBoxMod {
 
     public static final String MODID = "villagebox";
     public static final String MODNAME = "Village Box";
-    public static final String VERSION = "0.5.0";
+    public static final String VERSION = "0.5.robin";
 
     @Instance
     public static VillageBoxMod instance = new VillageBoxMod();
